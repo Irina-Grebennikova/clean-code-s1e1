@@ -4,37 +4,6 @@ body {
   color: #333;
   font-family: Lato, sans-serif;
 }
-.aaa {
-  width: 500px;
-  margin: 0 auto;
-  display: block;
-  text-align: right;
-}
-.aaa img {
-  width: 100%;
-}
-.aaa .more_inf {
-  font-family: fantasy, cursive;
-}
-
-@media (max-width:768px) {
-  .aaa { 
-    text-align: center;
-  }
-}
-.centered-main-page-element {
-  display: block;
-  width: 500px;
-  margin: 0 auto 0;
-}
-.task {
-  width: 56%;
-  display: inline-block;
-  flex-grow: 1
-}
-.task-row-wrapper {
-  display: flex;
-}
 ul {
   margin:0;
   padding: 0px;
@@ -45,20 +14,53 @@ li, h3 {
 input,button{
   outline:none;
 }
-button {
+.matrix {
+  width: 500px;
+  margin: 0 auto;
+  display: block;
+  text-align: right;
+}
+.matrix__image {
+  width: 100%;
+}
+.matrix__details {
+  font-family: fantasy, cursive;
+}
+
+@media (max-width:768px) {
+  .matrix { 
+    text-align: center;
+  }
+}
+.main {
+  display: block;
+  width: 500px;
+  margin: 0 auto 0;
+}
+.task {
+  width: 56%;
+  display: inline-block;
+  flex-grow: 1;
+}
+.add-item__body {
+  margin-top: 20px;
+  display: flex;
+}
+
+.button {
   background: none;
   border: 0px;
+  width: 60px;
+  cursor: pointer;
+  font-family: Lato, sans-serif;
   color: #888;
   font-size: 15px;
-  width: 60px;
-  font-family: Lato, sans-serif;
-  cursor: pointer;
 }
-button:hover {
+.button:hover {
   color: #3a3A3a;
 }
 /* Heading */
-h3,
+.title,
 label[for="new-task"] {
   color: #333;
   font-weight: 700;
@@ -89,7 +91,7 @@ label[for="new-task"] {
   display: block;
   margin: 0 0 20px;
 }
-input#new-task {
+#new-task {
   width: 318px;
 }
 
@@ -117,7 +119,7 @@ li > label {
   width: 226px;
 }
 li > input[type="text"] {
-  width: 226px
+  width: 226px;
 }
 button.delete img {
   height: 2em;
@@ -129,21 +131,21 @@ button.delete img:hover {
 }
 
 /* Completed */
-ul#completed-tasks label {
-  text-decoration: line-through
+.task-list#completed-tasks label {
+  text-decoration: line-through;
   color: #888;
 }
 
 /* Edit Task */
-ul li input[type="text"] {
-  display:none
+.task-list li input[type="text"] {
+  display:none;
 }
 
-ul li.editMode input[type="text"] {
+.task-list li.edit-mode input[type="text"] {
   display:inline-block;
-  width:224px
+  width:224px;
 }
 
-ul li.editMode label {
+.task-list li.edit-mode label {
   display: none;
 }
