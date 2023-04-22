@@ -20,6 +20,7 @@ input,button{
   width: 500px;
   margin: 0 auto 0;
 }
+/* .matrix */
 .matrix {
   width: 500px;
   margin: 0 auto;
@@ -38,12 +39,7 @@ input,button{
     text-align: center;
   }
 }
-
-.add-item__body {
-  margin-top: 20px;
-  display: flex;
-}
-
+/* .button */
 .button {
   background: none;
   border: 0px;
@@ -56,7 +52,7 @@ input,button{
 .button:hover {
   color: #3a3A3a;
 }
-/* Heading */
+
 .title {
   color: #333;
   font-weight: 700;
@@ -66,14 +62,7 @@ input,button{
   margin: 0;
   text-transform: uppercase;
 }
-/* для всех */
-.input,
-.task__label {
-  width: 56%;
-  display: inline-block;
-  flex-grow: 1;
-}
-/* для всех */
+/* .input */
 .input { 
   margin: 0;
   font-size: 18px;
@@ -86,18 +75,23 @@ input,button{
   font-family: Lato, sans-serif;
   color: #888;
 }
-/* для всех */
+
 .input:focus {
   color: #333;
 }
-
+.input,
+.task__label {
+  width: 56%;
+  display: inline-block;
+  flex-grow: 1;
+}
 /* New Task */
+.add-item__body {
+  margin-top: 20px;
+  display: flex;
+}
 .add-item__input {
   width: 318px;
-}
-.task__input {
-  width: 226px;
-  display:none;
 }
 
 /* Task list */
@@ -122,6 +116,10 @@ input,button{
   box-sizing: border-box;
   font-size: 18px;
   width: 226px;
+}
+.task__input {
+  width: 226px;
+  display:none;
 }
 
 .button__delete-img {
