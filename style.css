@@ -6,16 +6,16 @@ body {
 }
 
 ul {
-  margin:0;
+  margin: 0;
   padding: 0px;
 }
 
 li {
-  list-style:none;
+  list-style: none;
 }
 
-input,button{
-  outline:none;
+input, button{
+  outline: none;
 }
 
 .main {
@@ -139,7 +139,7 @@ input,button{
 
 .task__input {
   width: 226px;
-  display:none;
+  display: none;
 }
 
 .button__delete-img {
@@ -160,8 +160,8 @@ input,button{
 
 /* Edit Task */
 .task_edit-mode .task__input {
-  display:inline-block;
-  width:224px;
+  display: inline-block;
+  width: 224px;
 }
 
 .task_edit-mode .task__label {
