@@ -1,12 +1,12 @@
 //Problem: User interaction does not provide the correct results.
 //TODO: Add interactivity so the user can manage daily tasks.
 
-var taskInput=document.querySelector(".add-item__input");
-var addButton=document.getElementsByTagName("button")[0];
-var incompleteTaskHolder=document.querySelector(".task-list_incomplete");
-var completedTasksHolder=document.querySelector(".task-list_completed");
+var taskInput = document.querySelector(".add-item__input");
+var addButton = document.getElementsByTagName("button")[0];
+var incompleteTaskHolder = document.querySelector(".task-list_incomplete");
+var completedTasksHolder = document.querySelector(".task-list_completed");
 
-var createNewTaskElement = function(taskString) {
+var createNewTaskElement = (taskString) => {
 
   var listItem = document.createElement("li");
 
@@ -36,6 +36,7 @@ var createNewTaskElement = function(taskString) {
 
   deleteButton.classList.add("button", "button_delete");
   deleteButtonImg.src = "./remove.svg";
+  deleteButtonImg.alt = "Remove";
   deleteButtonImg.className = "button__delete-img";
   deleteButton.appendChild(deleteButtonImg);
 
@@ -47,10 +48,11 @@ var createNewTaskElement = function(taskString) {
   return listItem;
 }
 
-var addTask = function() {
+var addTask = () => {
   console.log("Add Task...");
 
-  if (!taskInput.value) return;
+  if (!taskInput.value)
+    return;
   var listItem = createNewTaskElement(taskInput.value);
 
   incompleteTaskHolder.appendChild(listItem);
@@ -59,13 +61,13 @@ var addTask = function() {
   taskInput.value = "";
 }
 
-var editTask = function() {
+var editTask = function () {
   console.log("Edit Task...");
   console.log("Change 'edit' to 'save'");
 
   var listItem = this.parentNode;
 
-  var editInput = listItem.querySelector('.task__input');
+  var editInput = listItem.querySelector(".task__input");
   var label = listItem.querySelector(".task__label");
   var editBtn = listItem.querySelector(".button_edit");
   var containsClass = listItem.classList.contains("task_edit-mode");
@@ -109,20 +111,29 @@ var taskIncomplete = function() {
   bindTaskEvents(listItem, taskCompleted);
 }
 
-var ajaxRequest = function() {
+var ajaxRequest = () => {
   console.log("AJAX Request");
 }
+
+taskInput.addEventListener('keydown', (e) => {
+  if (e.keyCode === 13) addTask();
+});
 
 addButton.addEventListener("click", addTask);
 addButton.addEventListener("click", ajaxRequest);
 
-var bindTaskEvents = function(taskListItem,checkBoxEventHandler) {
+var bindTaskEvents = (taskListItem, checkBoxEventHandler) => {
   console.log("bind list item events");
 
   var checkBox = taskListItem.querySelector(".task__checkbox");
+  var editInput = taskListItem.querySelector(".task__input");
   var editButton = taskListItem.querySelector(".button_edit");
   var deleteButton = taskListItem.querySelector(".button_delete");
 
+  editInput.addEventListener('keydown', function (e) {
+    // refreshes the task when the enter key is pressed
+    if (e.keyCode === 13) editTask.call(editInput);
+  })
 
   editButton.onclick = editTask;
   deleteButton.onclick = deleteTask;
